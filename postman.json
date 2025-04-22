@@ -1,0 +1,291 @@
+{
+	"info": {
+		"_postman_id": "6ce5423b-fbe7-44c8-ab07-0afb8e483cb5",
+		"name": "Institute Registration API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "15573681"
+	},
+	"item": [
+		{
+			"name": "Institutes",
+			"item": [
+				{
+					"name": "Create Institute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Global School\",\n  \"type\": \"school\",\n  \"schoolData\": {\n    \"board_id\": 1,\n    \"medium_id\": 1,\n    \"class_category_id\": 3,\n    \"standards\": [\n      {\n        \"standard_id\": 5,\n        \"subject_ids\": [1, 2]\n      }\n    ]\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/institutes"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Institutes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/institutes?type=school",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"institutes"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "school"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Schools",
+			"item": [
+				{
+					"name": "Get School Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/schools/options"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Standards by Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/schools/standards?category_id=3",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"schools",
+								"standards"
+							],
+							"query": [
+								{
+									"key": "category_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subjects by Standard",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/schools/subjects?standard_id=5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"schools",
+								"subjects"
+							],
+							"query": [
+								{
+									"key": "standard_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Colleges",
+			"item": [
+				{
+					"name": "Get College Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/colleges/options"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exams",
+			"item": [
+				{
+					"name": "Get Exam Options",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/exams/options"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Create Board",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"CBSE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/boards"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Boards",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/boards"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Class Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Higher Secondary\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/api/class-categories"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Class Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{baseUrl}}/api/class-categories"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Folder",
+			"item": [
+				{
+					"name": "Create School Registration Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"ABC High School\",\n  \"type\": \"school\",\n  \"boardId\": 1,\n  \"mediumId\": 1,\n  \"classCategoryId\": 3,\n  \"standardId\": 5,\n  \"subjects\": [1, 2, 3]\n}"
+						},
+						"url": "{{baseUrl}}/api/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Create College Registration Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"State College\",\n  \"type\": \"college\",\n  \"universityId\": 1,\n  \"degreeId\": 2\n}"
+						},
+						"url": "{{baseUrl}}/api/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Competitive Exam Registration Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"JEE Prep Center\",\n  \"type\": \"competitive_exam\",\n  \"examTypeId\": 1\n}"
+						},
+						"url": "{{baseUrl}}/api/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Playhouse Registration Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Little Stars Playhouse\",\n  \"type\": \"playhouse\"\n}"
+						},
+						"url": "{{baseUrl}}/api/registrations"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		}
+	]
+}
